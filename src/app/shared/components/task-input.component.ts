@@ -100,11 +100,10 @@ export class TaskInputComponent implements OnInit {
     private invokeAction(actionName: string) {
         let action = this[actionName];
         if (action && action !== null) {
-            console.info('invoking ' + actionName);
-            //this[actionName]();
+            console.debug('invoking ' + actionName);
             action();
         } else {
-            console.info(actionName + ' not found');
+            console.debug(actionName + ' not found');
         }
     }
 
