@@ -34,7 +34,7 @@ export class TaskInputComponent implements OnInit {
 
     addPrediction(prediction: TaskInputPrediction) {
         this.task.parts.push(prediction);
-        if (prediction.next.substring(0, 1) === '~') {
+        if (prediction.next !== null && prediction.next.substring(0, 1) === '~') {
             let action = prediction.next.substr(1).toLowerCase();
             console.log('action', action);
             this.predictions = [];
@@ -97,8 +97,15 @@ export class TaskInputComponent implements OnInit {
         this.task.title = values.join(' ');
     }
 
-    private invokeAction(action: string) {
-        this[action]();
+    private invokeAction(actionName: string) {
+        let action = this[actionName];
+        if (action && action !== null) {
+            console.info('invoking ' + actionName);
+            //this[actionName]();
+            action();
+        } else {
+            console.info(actionName + ' not found');
+        }
     }
 
     private getTaskListPredictions(tasks) {
@@ -107,12 +114,12 @@ export class TaskInputComponent implements OnInit {
         this.predictionsView = PredictionViewType.list;
     }
 
-    private tasklist(): void {
+    private tasklist = (): void => {
         this.taskService.get()
             .then((response) => this.getTaskListPredictions(response));
     }
 
-    private contactlist(): void {
+    private contactlist = (): void => {
         let contacts = [
             'tzachovadia@gmail.com',
             'another@mail.com',
