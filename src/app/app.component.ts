@@ -9,5 +9,5 @@ import { TaskInputComponent } from './shared/components/task-input.component';
   directives: [TaskInputComponent]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'FluenTask';
 }

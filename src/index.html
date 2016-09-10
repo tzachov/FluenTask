@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -11,6 +11,20 @@
     body {
       font-family: 'arial';
       font-size: 16px;
+      padding: 0;
+      margin: 0;
+    }
+    
+    header {
+      background-color: #679;
+      color: #fa0;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-weight: 100;
+      font-size: 1.4em;
+      padding: 0.3em;
     }
   </style>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -18,7 +32,11 @@
 </head>
 
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <header>
+      <h1>FluenTask</h1>
+    </header>
+  </app-root>
 </body>
 
 </html>
