@@ -8,7 +8,8 @@ export class PredictionService {
     { type: 'action', text: 'create', next: 'create' },
     { type: 'action', text: 'complete', next: 'complete' },
     { type: 'action', text: 'email', next: '~contactlist'},
-    { type: 'complete', text: 'task', next: '~tasklist' }
+    { type: 'complete', text: 'task', next: '~tasklist' },
+    { type: 'contact', text: 'about', next: null }
   ];
 
   get(prediction: TaskInputPrediction = null): Promise<TaskInputPrediction[]> {

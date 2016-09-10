@@ -98,13 +98,29 @@ export class TaskInputComponent implements OnInit {
     }
 
     private invokeAction(action: string) {
-        this.taskService.get()
-            .then((response) => this.getTaskListPredictions(response));
+        this[action]();
     }
 
     private getTaskListPredictions(tasks) {
         this.predictions = [];
         tasks.map(p => this.predictions.push(new TaskInputPrediction(p.title, 'task')));
+        this.predictionsView = PredictionViewType.list;
+    }
+
+    private tasklist(): void {
+        this.taskService.get()
+            .then((response) => this.getTaskListPredictions(response));
+    }
+
+    private contactlist(): void {
+        let contacts = [
+            'tzachovadia@gmail.com',
+            'another@mail.com',
+            'fake@mail.co.uk'
+        ];
+
+        this.predictions = [];
+        contacts.map(p => this.predictions.push(new TaskInputPrediction(p, null, 'contact')));
         this.predictionsView = PredictionViewType.list;
     }
 }
