@@ -19,7 +19,7 @@ export class TaskInputData {
 export class TaskInputComponent implements OnInit {
     task: TaskInputData = new TaskInputData();
     predictions: TaskInputPrediction[];
-    predictionsView = PredictionViewType.inline;
+    predictionsView = PredictionViewType.list;
     userInput: TaskInputPrediction = new TaskInputPrediction();
 
     constructor(
@@ -110,7 +110,7 @@ export class TaskInputComponent implements OnInit {
     private getTaskListPredictions(tasks) {
         this.predictions = [];
         tasks.map(p => this.predictions.push(new TaskInputPrediction(p.title, 'task')));
-        this.predictionsView = PredictionViewType.list;
+        // this.predictionsView = PredictionViewType.list;
     }
 
     private tasklist = (): void => {
@@ -127,6 +127,6 @@ export class TaskInputComponent implements OnInit {
 
         this.predictions = [];
         contacts.map(p => this.predictions.push(new TaskInputPrediction(p, null, 'contact')));
-        this.predictionsView = PredictionViewType.list;
+        //this.predictionsView = PredictionViewType.list;
     }
 }

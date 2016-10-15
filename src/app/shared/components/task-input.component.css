@@ -33,14 +33,11 @@
 
         ul.predictions-list li {
             cursor: pointer;
-            display: inline-block;
-            border: 1px solid rgba(0, 0, 0, 0.54);
-            border-radius: 5px;
-            background-color: rgba(210, 220, 230, 0.54);
+            display: block;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.14);
             padding: 5px;
             text-transform: capitalize;
-            text-align: center;
-            margin-right: 7px;
+            min-height: 48px;
         }
 
         ul.predictions-list.list li {
