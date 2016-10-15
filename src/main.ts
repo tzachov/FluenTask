@@ -1,11 +1,12 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
+import './polyfills.ts';
 
-import { AppComponent, environment } from './app/';
-import { TaskService } from './app/shared/services';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { environment } from './environments/environment';
+import { AppModule } from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [TaskService]);
+platformBrowserDynamic().bootstrapModule(AppModule);

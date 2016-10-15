@@ -1,8 +1,14 @@
 <header>
-  <h1>
-    {{title}}
-  </h1>
+	<h1>
+		{{title}}
+	</h1>
 </header>
 
-<div>New Task:</div>
-<fluentask-task-input></fluentask-task-input>
+<nav>
+	<a [routerLink]="['/']">Home</a> |
+	<a [routerLink]="['/profile']">Profile</a> |
+  <a [routerLink]="['/tasks']">Tasks</a>
+</nav>
+<main>
+	<router-outlet [@routeAnimation]="transition"></router-outlet>
+</main>

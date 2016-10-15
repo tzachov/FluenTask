@@ -1,3 +1,5 @@
+import { browser, element, by } from 'protractor';
+
 export class FluenTaskPage {
   navigateTo() {
     return browser.get('/');
