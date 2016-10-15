@@ -1,6 +1,6 @@
 {
-  "name": "fluen-task",
-  "version": "0.0.0",
+  "name": "fluentask",
+  "version": "1.0.0-alpha.1",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
