@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { TaskInputPrediction } from '../models/task-input-prediction';
 import { PredictionService } from '../services/prediction.service';
@@ -10,6 +10,8 @@ export class TaskInputData {
     parts: TaskInputPrediction[];
 }
 
+type SaveTaskFunction = (task: TaskInputData) => Promise<boolean>;
+
 @Component({
     selector: 'fluentask-task-input',
     templateUrl: 'task-input.component.html',
@@ -17,6 +19,9 @@ export class TaskInputData {
     providers: [PredictionService]
 })
 export class TaskInputComponent implements OnInit {
+    
+    @Input() saveTask: SaveTaskFunction;
+
     task: TaskInputData = new TaskInputData();
     predictions: TaskInputPrediction[];
     predictionsView = PredictionViewType.list;
@@ -84,6 +89,29 @@ export class TaskInputComponent implements OnInit {
 
         return false;
     }
+
+    save() {
+        this.showSpinner();
+        this.saveTask(this.task)
+            .then(response => this.hideSpinner())
+            .catch(error => {
+                this.hideSpinner();
+                this.showError(error);
+            });
+    }
+
+private showSpinner() {
+
+}
+
+private hideSpinner() {
+
+}
+
+private showError(error: string) {
+    // TODO: replace with toast
+    alert(error);
+}
 
     private loadPredictions(prediction: TaskInputPrediction = null) {
         this.predictionsView = PredictionViewType.inline;

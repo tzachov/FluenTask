@@ -12,4 +12,8 @@ export class AddTaskComponent implements OnInit {
   ngOnInit() {
   }
 
+  save(task: any) {
+    console.log('saving task', task);
+    return Promise.resolve(true);
+  }
 }
