@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { MaterialModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ProfileRoutingModule } from './+profile/profile-routing.module';
@@ -19,6 +21,7 @@ import { TasksRoutingModule } from './+tasks/tasks-routing.module';
     RouterModule,
     FormsModule,
     HttpModule,
+    MaterialModule.forRoot(),
     SharedModule.forRoot(),
     HomeRoutingModule,
     ProfileRoutingModule,

@@ -1,14 +1,23 @@
-<header>
-	<h1>
-		{{title}}
-	</h1>
-</header>
+<md-sidenav-layout>
 
-<nav>
-	<a [routerLink]="['/']">Home</a> |
-	<a [routerLink]="['/profile']">Profile</a> |
-  <a [routerLink]="['/tasks']">Tasks</a>
-</nav>
-<main>
-	<router-outlet [@routeAnimation]="transition"></router-outlet>
-</main>
+	<md-sidenav #sidenav mode="push" class="app-sidenav">
+		<md-list>
+			<md-list-item><a [routerLink]="['/']">Home</a></md-list-item>
+			<md-list-item><a [routerLink]="['/profile']">Profile</a></md-list-item>
+			<md-list-item><a [routerLink]="['/tasks']">Tasks</a></md-list-item>
+		</md-list>
+	</md-sidenav>
+
+	<md-toolbar color="primary">
+		<button md-icon-button (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+		<span>{{ title }}</span>
+	</md-toolbar>
+
+	<div class="app-content">
+
+		<router-outlet [@routeAnimation]="transition"></router-outlet>
+	</div>
+</md-sidenav-layout>

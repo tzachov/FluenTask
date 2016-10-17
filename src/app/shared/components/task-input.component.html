@@ -1,12 +1,13 @@
 <div class="task-input-container">
-    <!--<input type="text" [(ngModel)]="task.title" />-->
-    <div class="input-content">
-        <span *ngFor="let part of task.parts">{{ part.text }}</span>
-        <input type="text" (keyup)="onUserInputKeyUp($event)" [(ngModel)]="userInput.text" #inputElement />
-    </div>
-    <ul *ngIf="predictions" class="predictions-list" [class.list]="predictionsView === 1">
-        <li *ngFor="let p of predictions" (click)="addPrediction(p);inputElement.focus()">
-            {{ p.text }}
-        </li>
-    </ul>
+	<!--<input type="text" [(ngModel)]="task.title" />-->
+	<div class="input-content">
+		<span *ngFor="let part of task.parts">{{ part.text }}</span>
+		<md-input type="text" placeholder="Start typing..." (keyup)="onUserInputKeyUp($event)" [(ngModel)]="userInput.text" #inputElement></md-input>
+	</div>
+
+	<md-list *ngIf="predictions" class="predictions-list" [class.list]="predictionsView === 1">
+		<md-list-item *ngFor="let p of predictions" (click)="addPrediction(p);inputElement.focus()">
+			{{ p.text }}
+		</md-list-item>
+	</md-list>
 </div>

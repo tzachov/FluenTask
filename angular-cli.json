@@ -15,7 +15,7 @@
       "prefix": "fluentask",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environments": {

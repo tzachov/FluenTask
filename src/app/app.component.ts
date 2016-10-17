@@ -38,10 +38,6 @@ export class AppComponent implements OnInit {
     return 'block';
   }
 
-  @HostBinding('style.position') get position() {
-    return 'absolute';
-  }
-
   transition = false;
   title = 'FluenTask';
 
