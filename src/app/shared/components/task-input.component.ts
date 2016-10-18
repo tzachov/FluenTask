@@ -19,7 +19,7 @@ type SaveTaskFunction = (task: TaskInputData) => Promise<boolean>;
     providers: [PredictionService]
 })
 export class TaskInputComponent implements OnInit {
-    
+
     @Input() saveTask: SaveTaskFunction;
 
     task: TaskInputData = new TaskInputData();
@@ -155,6 +155,5 @@ private showError(error: string) {
 
         this.predictions = [];
         contacts.map(p => this.predictions.push(new TaskInputPrediction(p, null, 'contact')));
-        //this.predictionsView = PredictionViewType.list;
     }
 }

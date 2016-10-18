@@ -13,4 +13,9 @@ export class TaskService {
   get() {
     return Promise.resolve(this.tasks);
   }
+
+  add(task: any) {
+    this.tasks.push(task);
+    return Promise.resolve();
+  }
 }

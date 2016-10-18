@@ -3,8 +3,9 @@ import { RouterModule } from '@angular/router';
 
 import { TasksModule } from './tasks.module';
 import { TasksComponent } from './tasks.component';
-import { ListTasksComponent } from './list-tasks/list-tasks.component';
+import { ListTasksComponent, ListTasksResolver } from './list-tasks';
 import { AddTaskComponent } from './add-task/add-task.component';
+
 
 @NgModule({
     imports: [
@@ -12,7 +13,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
         RouterModule.forChild([
             {
                 path: 'tasks', component: TasksComponent, children: [
-                    { path: '', component: ListTasksComponent },
+                    { path: '', component: ListTasksComponent, resolve: [ListTasksResolver] },
                     { path: 'add', component: AddTaskComponent }
                 ]
             }

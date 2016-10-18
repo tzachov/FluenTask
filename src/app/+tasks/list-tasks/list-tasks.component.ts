@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Task } from '../../shared';
 
 @Component({
   selector: 'fluentask-list-tasks',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTasksComponent implements OnInit {
 
-  constructor() { }
+  tasks: Array<Task> = [];
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.forEach((data: { items: Array<Task> }) => {
+      this.tasks = data.items;
+    });
   }
 
 }

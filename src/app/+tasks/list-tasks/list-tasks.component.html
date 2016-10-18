@@ -1,3 +1,6 @@
-<p>
-  list-tasks works!
-</p>
+<md-list>
+  <md-list-item *ngFor="let task of tasks">
+    {{ task.title }}
+  </md-list-item>
+</md-list>
+<a md-button [routerLink]="['/tasks/add']">Add</a>

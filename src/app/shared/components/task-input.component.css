@@ -1,7 +1,7 @@
 .input-content span {
     display: inline-block;
-    margin-right: 7px;
-    font-size: 16px;
+    margin-right: 3px;
+    font-size: 14px;
 }
 
 .input-content span:first-of-type {
@@ -11,8 +11,9 @@
 .input-content input {
     border: none;
     outline: none;
-    padding: 0;
-    font-size: 16px;
+    padding: 10px 0;
+    font-size: 14px;
+    background: none;
 }
 
 ul.predictions-list {

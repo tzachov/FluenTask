@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { TaskService } from '../../shared';
 
 @Component({
   selector: 'fluentask-add-task',
@@ -7,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private taskService: TaskService
+  ) { }
 
   ngOnInit() {
   }
 
   save(task: any) {
     console.log('saving task', task);
-    return Promise.resolve(true);
+    return this.taskService.add(task)
+      .then(() => this.router.navigate(['/tasks/list']));
   }
 }

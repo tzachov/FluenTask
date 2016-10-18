@@ -1,14 +1,10 @@
 <div class="task-input-container">
-	<md-card>
-		<div class="input-content">
-			<span *ngFor="let part of task.parts">{{ part.text }}</span>
-			<md-input type="text" placeholder="Start typing..." (keyup)="onUserInputKeyUp($event)" [(ngModel)]="userInput.text" #inputElement></md-input>
-		</div>
-		<md-card-actions align="end">
-			<button md-button (click)="save()">Save</button>
-		</md-card-actions>
-	</md-card>
-
+	<button md-raised-button (click)="save()" style="float: right">Save</button>
+	<div class="input-content">
+		<span *ngFor="let part of task.parts">{{ part.text }}</span>
+		<input type="text" placeholder="Start typing..." (keyup)="onUserInputKeyUp($event)" [(ngModel)]="userInput.text" #inputElement />
+	</div>
+	
 	<md-list *ngIf="predictions" class="predictions-list" [class.list]="predictionsView === 1">
 		<md-list-item *ngFor="let p of predictions" (click)="addPrediction(p);inputElement.focus()">
 			{{ p.text }}
