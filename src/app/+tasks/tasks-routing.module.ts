@@ -10,7 +10,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
         RouterModule.forChild([
             {
                 path: '', component: TasksComponent, children: [
-                    { path: '', component: ListTasksComponent, resolve: [ListTasksResolver] },
+                    { path: '', redirectTo: 'list' },
+                    { path: 'list', component: ListTasksComponent, resolve: [ListTasksResolver] },
                     { path: 'add', component: AddTaskComponent }
                 ]
             }

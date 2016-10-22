@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 
+import { Task } from '../models';
+
 @Injectable()
 export class TaskService {
-  private tasks = [
-    { id: 1, title: 'Meet with (Tal Fadlon) at (Conference Room 1) on 13:00' },
-    { id: 2, title: 'Email (Roy Mashiah) about client-side testing' },
-    { id: 3, title: 'Complete task (Create Product API)' }
+  private tasks: Array<Task> = [
+    new Task(1, 'Meet with (Tal Fadlon) at (Conference Room 1) on 13:00'),
+    new Task(2, 'Email (Roy Mashiah) about client-side testing'),
+    new Task(3, 'Complete task (Create Product API)')
   ];
 
   constructor() { }
 
-  get() {
+  get(): Promise<Task[]> {
     return Promise.resolve(this.tasks);
   }
 

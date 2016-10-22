@@ -18,7 +18,7 @@ export class AddTaskComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(task: any) {
+  save = (task: any) => {
     console.log('saving task', task);
     return this.taskService.add(task)
       .then(() => this.router.navigate(['/tasks/list']));

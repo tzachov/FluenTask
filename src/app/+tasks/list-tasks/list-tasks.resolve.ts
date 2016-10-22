@@ -10,9 +10,7 @@ export class ListTasksResolver implements Resolve<Array<Task>> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         return this.taskService.get()
-            .then(response => {
-                return response;
-            })
+            .then(response => response)
             .catch(error => {
                 console.error(error);
                 return false;
