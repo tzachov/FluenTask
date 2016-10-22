@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from '@angular/material';
@@ -8,7 +8,7 @@ import { TaskService } from './services';
 import { TaskInputComponent } from './components';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, MaterialModule],
+    imports: [CommonModule, FormsModule, MaterialModule],
     declarations: [TaskInputComponent],
     exports: [TaskInputComponent]
 })

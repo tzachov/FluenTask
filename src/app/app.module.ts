@@ -2,15 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { ProfileRoutingModule } from './+profile/profile-routing.module';
-import { HomeRoutingModule } from './+home/home-routing.module';
-import { TasksRoutingModule } from './+tasks/tasks-routing.module';
+import { HomeModule } from './+home/home.module';
+
+const ROUTES = [
+  { path: 'tasks', loadChildren: 'app/+tasks/tasks.module' },
+  { path: 'profile', loadChildren: 'app/+profile/profile.module' }
+];
 
 @NgModule({
   declarations: [
@@ -18,14 +21,12 @@ import { TasksRoutingModule } from './+tasks/tasks-routing.module';
   ],
   imports: [
     BrowserModule,
-    RouterModule,
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
     SharedModule.forRoot(),
-    HomeRoutingModule,
-    ProfileRoutingModule,
-    TasksRoutingModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

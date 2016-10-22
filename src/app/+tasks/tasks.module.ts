@@ -1,24 +1,37 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from '../shared/shared.module';
+import { TasksRoutingModule } from './tasks-routing.module';
+
 import { TasksComponent } from './tasks.component';
-import { AddTaskComponent } from './add-task/add-task.component';
 import { ListTasksComponent, ListTasksResolver } from './list-tasks';
+import { AddTaskComponent } from './add-task/add-task.component';
+
+const TASKS_COMPONENTS = [
+  TasksComponent,
+  ListTasksComponent,
+  AddTaskComponent
+];
+
+const TASKS_PROVIDERS = [
+  ListTasksResolver
+];
 
 @NgModule({
   imports: [
-    BrowserModule,
     CommonModule,
-    RouterModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    TasksRoutingModule
   ],
-  declarations: [TasksComponent, AddTaskComponent, ListTasksComponent],
-  providers: [ListTasksResolver]
+  declarations: [
+    ...TASKS_COMPONENTS
+  ],
+  providers: [
+    ...TASKS_PROVIDERS
+  ]
 })
-export class TasksModule { }
+export default class TasksModule { }
